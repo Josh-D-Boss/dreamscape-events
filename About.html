@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - DreamScape Events And Curating</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#b37f3c', secondary: '#1A4D2E' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #36454F;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('Img/About/hero bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cta-section {
+            background-image: linear-gradient(rgba(15, 15, 15, 0.85), rgba(15, 15, 15, 0.9)), url('https://readdy.ai/api/search-image?query=Elegant%20Nigerian%20event%20setup%20with%20luxurious%20decorations.%20Beautiful%20table%20settings%20with%20gold%20accents%20and%20floral%20arrangements.%20Sophisticated%20venue%20with%20cultural%20elements.%20Warm%20ambient%20lighting%20creating%20an%20upscale%20atmosphere.%20No%20people%20visible%2C%20just%20the%20exquisite%20event%20space%20ready%20for%20guests.&width=1920&height=800&seq=cta1&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .team-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .client-logo {
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .client-logo:hover {
+            filter: grayscale(0%);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        input:focus {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Header Navigation -->
+    <header class="fixed w-full z-50 transition-all duration-300" id="header">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="text-3xl font-['Pacifico'] text-white">DreamScape</a>
+
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#" class="text-white hover:text-primary transition-colors">Home</a>
+                <a href="services.html" class="text-white hover:text-primary transition-colors">Services</a>
+                <a href="portfolio.html" class="text-white hover:text-primary transition-colors">Portfolio</a>
+                <a href="About.html"
+                    class="text-white hover:text-primary transition-colors border-b-2 border-primary">About</a>
+                <a href="services.html#consultation"
+                    class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90 transition-all whitespace-nowrap">Book
+                    A
+                    Consultation</a>
+            </nav>
+
+            <button class="md:hidden text-white w-10 h-10 flex items-center justify-center">
+                <i class="ri-menu-line ri-2x"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section h-screen flex items-center justify-center text-white relative">
+        <div class="container mx-auto text-center px-6 w-full">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Rooted in Culture. Driven by Elegance.</h1>
+            <p class="text-xl md:text-2xl mb-8 font-light">Curating Nigeria's Finest Moments</p>
+        </div>
+        <div class="absolute bottom-10 scroll-indicator w-10 h-10 flex items-center justify-center">
+            <i class="ri-arrow-down-line ri-2x"></i>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="py-20 bg-[#FDF8F3]">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-3/5 mb-10 md:mb-0 md:pr-12 fade-in">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-primary">Our Story</h2>
+                    <p class="mb-6 text-lg leading-relaxed">Founded in 2018 by Adebola Ogunlesi, Elegance was born from
+                        a passion for celebrating Nigeria's rich cultural heritage through meticulously crafted events.
+                        What began as a small team of dedicated professionals has blossomed into Nigeria's premier
+                        luxury event planning company.</p>
+                    <p class="mb-6 text-lg leading-relaxed">Our journey is rooted in understanding the intricate
+                        tapestry of Nigerian traditions while delivering experiences that transcend expectations. From
+                        intimate gatherings to grand celebrations, we infuse each event with cultural significance,
+                        contemporary elegance, and unparalleled attention to detail.</p>
+                    <p class="mb-8 text-lg leading-relaxed">Today, we proudly serve clients across Lagos, Abuja, Port
+                        Harcourt, and beyond, including Nigerian diaspora seeking to reconnect with their heritage
+                        through meaningful celebrations.</p>
+
+                    <div class="flex flex-wrap gap-3">
+                        <span
+                            class="px-4 py-2 bg-white rounded-full text-primary border border-primary text-sm font-medium">Lagos</span>
+                        <span
+                            class="px-4 py-2 bg-white rounded-full text-primary border border-primary text-sm font-medium">Abuja</span>
+                        <span
+                            class="px-4 py-2 bg-white rounded-full text-primary border border-primary text-sm font-medium">Port
+                            Harcourt</span>
+                        <span
+                            class="px-4 py-2 bg-white rounded-full text-primary border border-primary text-sm font-medium">International</span>
+                    </div>
+                </div>
+                <div class="md:w-2/5 relative h-[500px] fade-in">
+                    <div class="absolute top-0 right-0 w-4/5 h-3/5 rounded-lg overflow-hidden shadow-xl">
+                        <img src="https://readdy.ai/api/search-image?query=Elegant%20Nigerian%20wedding%20reception%20with%20beautiful%20decorations.%20Traditional%20elements%20blended%20with%20modern%20luxury.%20Rich%20cultural%20details%20with%20sophisticated%20styling.%20Warm%20lighting%20and%20upscale%20atmosphere.%20High-end%20event%20design%20with%20attention%20to%20detail.&width=600&height=400&seq=story1&orientation=landscape"
+                            alt="Luxury Nigerian wedding" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-4/5 h-3/5 rounded-lg overflow-hidden shadow-xl">
+                        <img src="https://readdy.ai/api/search-image?query=Sophisticated%20corporate%20event%20in%20Nigeria%20with%20elegant%20setup.%20Professional%20business%20gathering%20with%20luxury%20details.%20Modern%20venue%20with%20traditional%20Nigerian%20elements.%20Clean%2C%20upscale%20design%20with%20attention%20to%20detail.%20Corporate%20branding%20subtly%20integrated%20into%20luxurious%20environment.&width=600&height=400&seq=story2&orientation=landscape"
+                            alt="Corporate event in Nigeria" class="w-full h-full object-cover object-top">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Team Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center text-primary fade-in">Meet Our Team</h2>
+            <p class="text-lg text-center mb-16 max-w-3xl mx-auto fade-in">Our diverse team of passionate professionals
+                brings together decades of experience in event planning, design, and cultural expertise.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Team Member 1 -->
+                <div class="team-card bg-white rounded-lg p-6 shadow-md transition-all duration-300 fade-in">
+                    <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden">
+                        <img src="Img/About/Team DP (1).png"
+                            alt="Divine U.C" class="w-full h-full object-cover object-top">
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2">Divine U.C</h3>
+                    <p class="text-center text-sm text-gray-600 uppercase tracking-wider mb-4">Operataions & Co-Event Planner</p>
+                    <p class="text-center">With over 15 years in luxury event planning across three continents, Divine
+                        brings her international expertise and deep cultural knowledge to every project.</p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-card bg-white rounded-lg p-6 shadow-md transition-all duration-300 fade-in">
+                    <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden">
+                        <img src="Img/About/Team DP (2).png"
+                            alt="Joshua Charlington" class="w-full h-full object-cover object-top">
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2">Joshua Charlington</h3>
+                    <p class="text-center text-sm text-gray-600 uppercase tracking-wider mb-4">Client & Operations Director</p>
+                    <p class="text-center">Joshua's meticulous attention to detail and logistics expertise ensures
+                        flawless execution of even the most complex events across Nigeria.</p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-card bg-white rounded-lg p-6 shadow-md transition-all duration-300 fade-in">
+                    <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden">
+                        <img src="Img/About/Team DP (3).png"
+                            alt="Chioma Ahamefule" class="w-full h-full object-cover object-top">
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2">Chioma Ahamefule</h3>
+                    <p class="text-center text-sm text-gray-600 uppercase tracking-wider mb-4">Social Media & Content Strategist</p>
+                    <p class="text-center">Chioma's innovative approach to event aesthetics blends traditional Nigerian
+                        elements with contemporary design for truly unique experiences.</p>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="team-card bg-white rounded-lg p-6 shadow-md transition-all duration-300 fade-in">
+                    <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden">
+                        <img src="Img/About/Team DP (4).png"
+                            alt="John Oluwatobi" class="w-full h-full object-cover object-top">
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2">John Oluwatobi</h3>
+                    <p class="text-center text-sm text-gray-600 uppercase tracking-wider mb-4">Brand & Documentation Coordinator</p>
+                    <p class="text-center">As a respected cultural historian, John ensures authenticity in our
+                        incorporation of Nigeria's diverse traditions into modern celebrations.</p>
+                </div>
+
+                <!-- Team Member 5 -->
+                <div class="team-card bg-white rounded-lg p-6 shadow-md transition-all duration-300 fade-in">
+                    <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden">
+                        <img src="Img/About/Team DP (5).png"
+                            alt="Francisca .I" class="w-full h-full object-cover object-top">
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2">Francisca .I</h3>
+                    <p class="text-center text-sm text-gray-600 uppercase tracking-wider mb-4">Head of Ushering & Hosting Operation
+                    </p>
+                    <p class="text-center">Francisca's warm approach and impeccable communication skills ensure our clients
+                        feel supported throughout the entire planning process.</p>
+                </div>
+
+                <!-- Team Member 6 -->
+                <div class="team-card bg-white rounded-lg p-6 shadow-md transition-all duration-300 fade-in">
+                    <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden">
+                        <img src="Img/About/Team DP (6).png"
+                            alt="Tiwa Savage" class="w-full h-full object-cover object-top">
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2">Tiwa Savage</h3>
+                    <p class="text-center text-sm text-gray-600 uppercase tracking-wider mb-4">Lead Bridal Concierge</p>
+                    <p class="text-center">Tiwa seamlessly integrates cutting-edge technology with traditional elements
+                        to create immersive, unforgettable event experiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-[#F9F5F0]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-primary inline-block relative">
+                    Why Choose Us
+                    <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-secondary"></span>
+                </h2>
+                <p class="text-lg mt-8 max-w-3xl mx-auto">We combine cultural expertise with luxury execution to create
+                    events that honor tradition while exceeding modern expectations.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Pillar 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-md text-center fade-in">
+                    <div class="w-16 h-16 mx-auto mb-6 text-primary flex items-center justify-center">
+                        <i class="ri-award-line ri-2x"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Cultural Expertise</h3>
+                    <p>Deep understanding of Nigeria's diverse traditions, ensuring authentic representation in modern
+                        celebrations.</p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-md text-center fade-in">
+                    <div class="w-16 h-16 mx-auto mb-6 text-primary flex items-center justify-center">
+                        <i class="ri-vip-crown-line ri-2x"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Luxury Execution</h3>
+                    <p>Impeccable attention to detail and premium quality in every aspect of your event experience.</p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-md text-center fade-in">
+                    <div class="w-16 h-16 mx-auto mb-6 text-primary flex items-center justify-center">
+                        <i class="ri-user-heart-line ri-2x"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Personalized Service</h3>
+                    <p>Bespoke planning approach tailored to your unique vision, preferences, and cultural requirements.
+                    </p>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="bg-white p-8 rounded-lg shadow-md text-center fade-in">
+                    <div class="w-16 h-16 mx-auto mb-6 text-primary flex items-center justify-center">
+                        <i class="ri-flow-chart-line ri-2x"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Flawless Logistics</h3>
+                    <p>Seamless coordination of all event elements, from venue selection to vendor management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recognition Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-primary fade-in">Clients We've Worked With
+            </h2>
+
+            <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 fade-in">
+                <div class="client-logo w-32 h-32 flex items-center justify-center">
+                    <div class="w-20 h-20 flex items-center justify-center">
+                        <i class="ri-bank-fill ri-3x text-gray-400"></i>
+                    </div>
+                    <p class="text-gray-500 font-medium">First Bank</p>
+                </div>
+
+                <div class="client-logo w-32 h-32 flex items-center justify-center">
+                    <div class="w-20 h-20 flex items-center justify-center">
+                        <i class="ri-building-4-fill ri-3x text-gray-400"></i>
+                    </div>
+                    <p class="text-gray-500 font-medium">GTBank</p>
+                </div>
+
+                <div class="client-logo w-32 h-32 flex items-center justify-center">
+                    <div class="w-20 h-20 flex items-center justify-center">
+                        <i class="ri-oil-fill ri-3x text-gray-400"></i>
+                    </div>
+                    <p class="text-gray-500 font-medium">NNPC</p>
+                </div>
+
+                <div class="client-logo w-32 h-32 flex items-center justify-center">
+                    <div class="w-20 h-20 flex items-center justify-center">
+                        <i class="ri-broadcast-fill ri-3x text-gray-400"></i>
+                    </div>
+                    <p class="text-gray-500 font-medium">MTN Nigeria</p>
+                </div>
+
+                <div class="client-logo w-32 h-32 flex items-center justify-center">
+                    <div class="w-20 h-20 flex items-center justify-center">
+                        <i class="ri-tv-fill ri-3x text-gray-400"></i>
+                    </div>
+                    <p class="text-gray-500 font-medium">Africa Magic</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section py-20 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 fade-in">Let's Bring Your Vision to Life</h2>
+            <p class="text-xl mb-10 max-w-2xl mx-auto fade-in">From intimate gatherings to grand celebrations, we're
+                ready to transform your dreams into unforgettable experiences.</p>
+            <a href="services.html#consultation"
+                class="inline-block bg-primary text-white font-bold py-4 px-8 rounded-button shadow-lg hover:bg-gray-100 transition-all duration-300 fade-in whitespace-nowrap">Book
+                a Consultation</a>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-[#FDF8F3]">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center fade-in">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary">Stay Inspired</h2>
+                <p class="mb-8">Subscribe to receive exclusive event planning tips, cultural insights, and inspiration
+                    for your next celebration.</p>
+
+                <form action="https://formsubmit.co/adreamscap3@gmail.com" method="POST" class="max-w-md mx-auto flex">
+                    <input type="email" name="email" required placeholder="Your email address"
+                        class="flex-grow px-4 py-3 rounded-l-lg border-none focus:outline-none focus:ring-2 focus:ring-primary">
+
+                    <input type="hidden" name="form-type" value="Newsletter">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+
+                    <button type="submit"
+                        class="bg-primary text-white px-6 py-3 rounded-r-lg hover:bg-opacity-90 transition-all whitespace-nowrap">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-16 pb-8 border-t border-gray-200">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
+                <div>
+                    <a href="#" class="text-3xl font-['Pacifico'] text-primary mb-6 inline-block">Elegance</a>
+                    <p class="text-gray-600 mb-6">Crafting unforgettable moments that honor Nigerian heritage while
+                        embracing contemporary luxury.</p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-opacity-90">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-opacity-90">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-opacity-90">
+                            <i class="ri-twitter-x-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-primary transition-colors">Services</a>
+                        </li>
+                        <li><a href="#portfolio"
+                                class="text-gray-400 hover:text-primary transition-colors">Portfolio</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">About Us</a>
+                        </li>
+                        <li><a href="index.html#contact"
+                                class="text-gray-400 hover:text-primary transition-colors">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="services.html#traditional-ceremonies"
+                                class="text-gray-400 hover:text-primary transition-colors">Traditional Ceremony</a></li>
+                        <li><a href="services.html#luxury-weddings"
+                                class="text-gray-400 hover:text-primary transition-colors">Luxury Weddings</a></li>
+                        <li><a href="services.html#corporate-events"
+                                class="text-gray-400 hover:text-primary transition-colors">Corporate Events</a></li>
+                        <li><a href="services.html#social-events"
+                                class="text-gray-400 hover:text-primary transition-colors">Social Events</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Contact Us</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 mt-1 flex items-center justify-center mr-3">
+                                <i class="ri-map-pin-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-600">15 Victoria Island Boulevard, Lagos, Nigeria</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 mt-1 flex items-center justify-center mr-3">
+                                <i class="ri-phone-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-600">+234 812 345 6789</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 mt-1 flex items-center justify-center mr-3">
+                                <i class="ri-mail-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-600">dreamscapeevents01@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
+                <p>&copy; 2025 Elegance Nigeria. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script id="headerScroll">
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.getElementById('header');
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 100) {
+                    header.classList.add('bg-gray-900');
+                    header.classList.remove('bg-transparent');
+                } else {
+                    header.classList.remove('bg-gray-900');
+                    header.classList.add('bg-transparent');
+                }
+            });
+        });
+    </script>
+
+    <script id="animation-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            const fadeElements = document.querySelectorAll('.fade-in');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+
+</html>

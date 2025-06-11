@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - DreamScape Events And Curating</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#b37f3c', secondary: '#1A4D2E' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #36454F;;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Img/Service/hero bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .section-heading::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #E6BE8A;
+            margin-top: 16px;
+        }
+
+        .service-card {
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        .custom-dots {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 50;
+        }
+
+        .custom-dots .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #E6BE8A;
+            margin: 8px 0;
+            opacity: 0.5;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .custom-dots .dot.active {
+            opacity: 1;
+            height: 16px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Header Navigation -->
+    <header class="fixed w-full z-50 transition-all duration-300" id="header">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="text-3xl font-['Pacifico'] text-white">DreamScape</a>
+
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-white hover:text-primary transition-colors">Home</a>
+                <a href="#"
+                    class="text-white hover:text-primary transition-colors border-b-2 border-primary">Services</a>
+                <a href="portfolio.html" class="text-white hover:text-primary transition-colors">Portfolio</a>
+                <a href="About.html" class="text-white hover:text-primary transition-colors">About</a>
+                <a href="services.html#consultation"
+                    class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90 transition-all whitespace-nowrap">Book
+                    A Consultation</a>
+            </nav>
+
+            <button class="md:hidden text-white w-10 h-10 flex items-center justify-center">
+                <i class="ri-menu-line ri-2x"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section h-screen flex items-center justify-center pt-16">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Our Services, Your Vision – Curated With Class
+            </h1>
+            <p class="text-xl text-white mb-8 max-w-3xl mx-auto">Bringing elegance and cultural richness to every
+                celebration across Nigeria and beyond.</p>
+        </div>
+    </section>
+
+    <!-- Services Introduction -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Crafting Unforgettable Moments</h2>
+                <p class="text-gray-700">At DreamScape Events, we blend Nigerian cultural richness with contemporary
+                    luxury to create events that transcend the ordinary. Our team of seasoned professionals brings your
+                    vision to life with meticulous attention to detail.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded shadow-md text-center service-card">
+                    <div
+                        class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-primary bg-opacity-10 rounded-full">
+                        <i class="ri-heart-line ri-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Personalized Service</h3>
+                    <p class="text-gray-600">Every event is uniquely tailored to reflect your personal style and
+                        cultural preferences.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded shadow-md text-center service-card">
+                    <div
+                        class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-primary bg-opacity-10 rounded-full">
+                        <i class="ri-award-line ri-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Premium Quality</h3>
+                    <p class="text-gray-600">We partner with Nigeria's finest vendors to ensure exceptional quality in
+                        every aspect.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded shadow-md text-center service-card">
+                    <div
+                        class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-primary bg-opacity-10 rounded-full">
+                        <i class="ri-calendar-check-line ri-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Flawless Execution</h3>
+                    <p class="text-gray-600">From concept to completion, we handle every detail with precision and
+                        grace.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Weddings -->
+    <section id="luxury-weddings" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 section-heading">Luxury Weddings</h2>
+                    <p class="text-gray-700 mb-6">From private garden ceremonies to high-society Lagos receptions, we
+                        handle every detail with grace and precision. Our luxury wedding services combine timeless
+                        elegance with contemporary flair, creating celebrations that reflect your unique love story.</p>
+                    <p class="text-gray-700 mb-8">We specialize in creating seamless experiences that allow you and your
+                        guests to fully immerse in the joy of your special day, whether it's an intimate gathering or a
+                        grand celebration.</p>
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <span class="px-4 py-2 bg-gray-100 text-gray-800 rounded-full text-sm">White Weddings</span>
+                        <span class="px-4 py-2 bg-gray-100 text-gray-800 rounded-full text-sm">Garden Ceremonies</span>
+                        <span class="px-4 py-2 bg-gray-100 text-gray-800 rounded-full text-sm">Destination
+                            Weddings</span>
+                        <span class="px-4 py-2 bg-gray-100 text-gray-800 rounded-full text-sm">Luxury Receptions</span>
+                    </div>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2Pl8veqzC1sRdgWqGUNlClL8qNUYFBC1QkS4ugqkCmKUKPw/viewform?usp=header"
+                        class="inline-block bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all">Plan
+                        With Us</a>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="relative rounded-lg overflow-hidden shadow-xl">
+                        <img src="Img/Service/Luxury Wedding.jpg" alt="Luxury Nigerian Wedding"
+                            class="w-full h-auto object-cover object-top">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Traditional Ceremonies -->
+    <section id="traditional-ceremonies" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 section-heading">Traditional Ceremonies</h2>
+                    <p class="text-gray-700 mb-6">We honor tradition with finesse — from engagement setups to
+                        traditional rites. Our team showcases cultural expertise across Yoruba, Igbo, Hausa, and
+                        cross-cultural weddings, ensuring authentic experiences that respect your heritage.</p>
+                    <p class="text-gray-700 mb-8">Each traditional ceremony is meticulously planned to incorporate
+                        meaningful cultural elements while maintaining the elegance and sophistication that defines the
+                        DreamScape experience.</p>
+
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center rounded-full bg-primary bg-opacity-10">
+                                <i class="ri-checkbox-circle-line text-primary"></i>
+                            </div>
+                            <span>Yoruba Ceremonies</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center rounded-full bg-primary bg-opacity-10">
+                                <i class="ri-checkbox-circle-line text-primary"></i>
+                            </div>
+                            <span>Igbo Ceremonies</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center rounded-full bg-primary bg-opacity-10">
+                                <i class="ri-checkbox-circle-line text-primary"></i>
+                            </div>
+                            <span>Hausa Ceremonies</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center rounded-full bg-primary bg-opacity-10">
+                                <i class="ri-checkbox-circle-line text-primary"></i>
+                            </div>
+                            <span>Cross-Cultural</span>
+                        </div>
+                    </div>
+
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2Pl8veqzC1sRdgWqGUNlClL8qNUYFBC1QkS4ugqkCmKUKPw/viewform?usp=header"
+                        class="inline-block bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all">Plan
+                        With Us</a>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="relative rounded-lg overflow-hidden shadow-xl">
+                        <img src="Img/Service/Traditional Ceremony.jpg" alt="Traditional Nigerian Ceremony"
+                            class="w-full h-auto object-cover object-top">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Events -->
+    <section id="corporate-events" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 section-heading">Corporate Events & Brand Launches
+                    </h2>
+                    <p class="text-gray-700 mb-6">We design brand experiences that leave lasting impressions. From
+                        premium brand events in Abuja to award galas in Lagos and press launches, our corporate event
+                        services elevate your brand's presence and message.</p>
+                    <p class="text-gray-700 mb-8">Our team works closely with your marketing department to ensure brand
+                        consistency while introducing innovative elements that make your event stand out in Nigeria's
+                        competitive business landscape.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <div class="bg-white p-4 rounded shadow-sm">
+                            <h4 class="font-bold mb-2">Product Launches</h4>
+                            <p class="text-sm text-gray-600">Creating buzz and excitement around your new offerings.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded shadow-sm">
+                            <h4 class="font-bold mb-2">Award Ceremonies</h4>
+                            <p class="text-sm text-gray-600">Celebrating excellence with sophistication and style.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded shadow-sm">
+                            <h4 class="font-bold mb-2">Conferences</h4>
+                            <p class="text-sm text-gray-600">Seamless organization of knowledge-sharing events.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded shadow-sm">
+                            <h4 class="font-bold mb-2">Corporate Retreats</h4>
+                            <p class="text-sm text-gray-600">Team-building experiences in luxurious settings.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="md:w-1/2">
+                    <div class="relative rounded-lg overflow-hidden shadow-xl">
+                        <img src="Img/Service/Corporate Event.jpg" alt="Corporate Event in Nigeria"
+                            class="w-full h-auto object-cover object-top">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Events -->
+    <section id="social-events" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 section-heading">Social Events & Private Parties</h2>
+                    <p class="text-gray-700 mb-6">From milestone birthdays to lavish baby showers and anniversaries, we
+                        create social events that reflect your personal style and exceed expectations. Our designs draw
+                        inspiration from Nigerian celebrity aesthetics while maintaining your unique preferences.</p>
+                    <p class="text-gray-700 mb-8">Each social event is an opportunity to create memories that last a
+                        lifetime, and we approach every celebration with creativity, attention to detail, and a
+                        commitment to excellence.</p>
+
+                    <div class="flex flex-wrap gap-y-4 mb-8">
+                        <div class="w-1/2 flex items-center gap-2">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-cake-3-line text-primary"></i>
+                            </div>
+                            <span>Birthday Celebrations</span>
+                        </div>
+                        <div class="w-1/2 flex items-center gap-2">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-heart-2-line text-primary"></i>
+                            </div>
+                            <span>Anniversary Parties</span>
+                        </div>
+                        <div class="w-1/2 flex items-center gap-2">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-baby-line text-primary"></i>
+                            </div>
+                            <span>Baby Showers</span>
+                        </div>
+                        <div class="w-1/2 flex items-center gap-2">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-graduation-cap-line text-primary"></i>
+                            </div>
+                            <span>Graduation Parties</span>
+                        </div>
+                        <div class="w-1/2 flex items-center gap-2">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-home-heart-line text-primary"></i>
+                            </div>
+                            <span>Housewarming Events</span>
+                        </div>
+                        <div class="w-1/2 flex items-center gap-2">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-goblet-line text-primary"></i>
+                            </div>
+                            <span>Exclusive Soirées</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="md:w-1/2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="rounded-lg overflow-hidden shadow-md">
+                            <img src="Img/Service/Baby Celebrations.jpg" alt="Luxury Birthday Celebration"
+                                class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="rounded-lg overflow-hidden shadow-md">
+                            <img src="Img/Service/Private Party.jpg" alt="Elegant Baby Shower"
+                                class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="rounded-lg overflow-hidden shadow-md">
+                            <img src="Img/Service/House Warming.jpg" alt="Anniversary Celebration"
+                                class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="rounded-lg overflow-hidden shadow-md">
+                            <img src="Img/Service/Graduation Party.jpg" alt="Graduation Party"
+                                class="w-full h-full object-cover object-top">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hostess Services -->
+    <section id="hostess-services" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 section-heading">Hostess & Ushering Services</h2>
+                    <p class="text-gray-700 mb-6">Our trained hostesses represent your event with poise — from ushering
+                        to offering at traditional gatherings. The DreamScape-approved in-house team is trained in
+                        elegance, etiquette, and cultural presentation to ensure your guests experience impeccable
+                        service.</p>
+                    <p class="text-gray-700 mb-8">Each member of our hostess team undergoes rigorous training in
+                        Nigerian cultural protocols, international etiquette standards, and the art of gracious
+                        hospitality to represent your event with distinction.</p>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                        <h4 class="font-bold text-lg mb-4">Our Hostess Services Include:</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <div class="w-6 h-6 flex items-center justify-center mt-0.5">
+                                    <i class="ri-check-line text-primary"></i>
+                                </div>
+                                <span>Professional guest reception and ushering</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-6 h-6 flex items-center justify-center mt-0.5">
+                                    <i class="ri-check-line text-primary"></i>
+                                </div>
+                                <span>Traditional offering services for cultural ceremonies</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-6 h-6 flex items-center justify-center mt-0.5">
+                                    <i class="ri-check-line text-primary"></i>
+                                </div>
+                                <span>VIP guest assistance and protocol management</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-6 h-6 flex items-center justify-center mt-0.5">
+                                    <i class="ri-check-line text-primary"></i>
+                                </div>
+                                <span>Elegant presentation of gifts and ceremonial items</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-6 h-6 flex items-center justify-center mt-0.5">
+                                    <i class="ri-check-line text-primary"></i>
+                                </div>
+                                <span>Custom uniform design to complement your event theme</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="md:w-1/2">
+                    <div class="relative rounded-lg overflow-hidden shadow-xl">
+                        <img src="Img/Service/Hostessess.jpg" alt="Nigerian Hostess Team"
+                            class="w-full h-auto object-cover object-top">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">What Our Clients Say</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-6">
+                        <div class="text-primary">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"DreamScape transformed our wedding into a magical experience that
+                        perfectly blended my Yoruba traditions with my husband's Igbo customs. Every detail was executed
+                        flawlessly, and our guests are still talking about it months later."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold">Adebola Ogunleye</h4>
+                            <p class="text-sm text-gray-600">Lagos, Nigeria</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-6">
+                        <div class="text-primary">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"Our company's 10th anniversary celebration was nothing short of
+                        spectacular. The DreamScape team managed every aspect professionally, from the sophisticated
+                        decor to the impeccable service. They truly elevated our brand image."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold">Chinedu Ekwueme</h4>
+                            <p class="text-sm text-gray-600">CEO, TechNova Solutions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-6">
+                        <div class="text-primary">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"The hostess team provided for my daughter's traditional wedding
+                        ceremony was exceptional. They were knowledgeable about our cultural practices and added a touch
+                        of elegance to the proceedings. Truly world-class service."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold">Fatima Abubakar</h4>
+                            <p class="text-sm text-gray-600">Abuja, Nigeria</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#"
+                class="inline-block mt-12 border-2 border-primary text-primary px-8 py-3 !rounded-button whitespace-nowrap hover:bg-primary hover:text-white transition-all">View
+                More</a>
+        </div>
+    </section>
+
+    <!-- Consultation Section -->
+    <section id="consultation" class="py-20 bg-cover bg-center"
+        style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Img/Service/Form\ bg.jpg')">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Have Something Special in Mind?</h2>
+            <p class="text-xl text-white mb-12 max-w-3xl mx-auto">Let's bring your vision to life. Schedule a
+                complimentary
+                consultation with our expert event planners to discuss your ideas and requirements.</p>
+
+            <div class="max-w-3xl mx-auto bg-white rounded-lg p-8 shadow-lg">
+                <h3 class="text-2xl font-bold mb-6">Book Your Consultation</h3>
+                <form action="https://formsubmit.co/adreamscape3@gmail.com" method="POST" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Full Name</label>
+                            <input type="text" name="name" id="name" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary"
+                                placeholder="Your name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+                            <input type="email" name="email" id="email" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary"
+                                placeholder="Your email">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" name="phone" id="phone"
+                                class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary"
+                                placeholder="Your phone number">
+                        </div>
+                        <div>
+                            <label for="event-type" class="block text-gray-700 mb-2">Event Type</label>
+                            <div class="relative">
+                                <select name="eventtype" id="event-type" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary appearance-none pr-8">
+                                    <option value="" disabled selected>Select event type</option>
+                                    <option value="Wedding">Wedding</option>
+                                    <option value="Traditional Ceremony">Traditional Ceremony</option>
+                                    <option value="Corporate Event">Corporate Event</option>
+                                    <option value="Social Event">Social Event</option>
+                                    <option value="Hostess Services">Hostess Services</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-gray-700 mb-2">Tell Us About Your Event</label>
+                        <textarea name="message" id="message" rows="4" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary"
+                            placeholder="Share your vision, date, location, and any specific requirements"></textarea>
+                    </div>
+
+                    <div class="flex items-center">
+                        <input type="checkbox" name="agree" id="privacy" value="Agreed" required class="mr-2">
+                        <label for="privacy" class="text-sm text-gray-600">I agree to the privacy policy and terms of
+                            service</label>
+                    </div>
+
+                    <!-- FormSubmit Settings -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+                    <input type="hidden" name="_subject" value="New Consultation Request from Website">
+
+                    <button type="submit"
+                        class="w-full bg-primary text-white py-3 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all">
+                        Book Your Consultation
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Preview -->
+    <section class="py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Our Portfolio</h2>
+            <p class="text-gray-700 mb-12 max-w-3xl mx-auto">Explore some of our most memorable events and celebrations
+                across Nigeria.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="group relative rounded-lg overflow-hidden shadow-md h-80">
+                    <img src="Img/Service/Luxury Wedding Reception.jpg" alt="Luxury Wedding Reception"
+                        class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-6 text-white text-left">
+                            <h3 class="font-bold text-xl">Luxury Wedding Reception</h3>
+                            <p class="text-sm">Kano, Nigeria</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-lg overflow-hidden shadow-md h-80">
+                    <img src="Img/Service/Traditional Engagement.jpg" alt="Traditional Engagement"
+                        class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-6 text-white text-left">
+                            <h3 class="font-bold text-xl">Traditional Engagement</h3>
+                            <p class="text-sm">Enugu, Nigeria</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-lg overflow-hidden shadow-md h-80">
+                    <img src="Img/Service/Corporate Gala.jpg" alt="Corporate Gala"
+                        class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-6 text-white text-left">
+                            <h3 class="font-bold text-xl">Corporate Gala</h3>
+                            <p class="text-sm">Abuja, Nigeria</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="Portfolio.html"
+                class="inline-block mt-12 border-2 border-primary text-primary px-8 py-3 !rounded-button whitespace-nowrap hover:bg-primary hover:text-white transition-all">View
+                Full Portfolio</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <h3 class="text-2xl font-['Pacifico'] mb-6">Dreamscape</h3>
+                    <p class="text-gray-400 mb-6">Creating unforgettable luxury events across Nigeria since 2015. We
+                        transform your vision into extraordinary experiences.</p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/eventsby_dreamscape?igsh=MWlrYnF5a3lxenJtaw=="
+                            class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-twitter-x-line"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Services</a>
+                        </li>
+                        <li><a href="Portfolio.html"
+                                class="text-gray-400 hover:text-primary transition-colors">Portfolio</a></li>
+                        <li><a href="About.html" class="text-gray-400 hover:text-primary transition-colors">About Us</a>
+                        </li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-primary transition-colors">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="services.html#traditional-ceremonies"
+                                class="text-gray-400 hover:text-primary transition-colors">Traditional Ceremony</a></li>
+                        <li><a href="services.html#luxury-weddings"
+                                class="text-gray-400 hover:text-primary transition-colors">Luxury Weddings</a></li>
+                        <li><a href="services.html#corporate-events"
+                                class="text-gray-400 hover:text-primary transition-colors">Corporate Events</a></li>
+                        <li><a href="services.html#social-events"
+                                class="text-gray-400 hover:text-primary transition-colors">Social Events</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="text-gray-400">15 Admiralty Way, Lekki Phase 1, Lagos, Nigeria</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <span class="text-gray-400">+234 801 234 5678</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <span class="text-gray-400">dreamscapeevents01@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
+                <div class="flex justify-center space-x-6 mb-6">
+                    <i class="ri-visa-fill ri-2x"></i>
+                    <i class="ri-mastercard-fill ri-2x"></i>
+                    <i class="ri-paypal-fill ri-2x"></i>
+                </div>
+                <p>&copy; 2025 Dreamscape Events. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button id="scrollToTop"
+        class="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="ri-arrow-up-line ri-lg"></i>
+    </button>
+
+    <!-- Navigation dots -->
+    <div class="custom-dots hidden md:block">
+        <div class="dot active" data-section="hero"></div>
+        <div class="dot" data-section="luxury-weddings"></div>
+        <div class="dot" data-section="traditional-ceremonies"></div>
+        <div class="dot" data-section="corporate-events"></div>
+        <div class="dot" data-section="social-events"></div>
+        <div class="dot" data-section="hostess-services"></div>
+        <div class="dot" data-section="consultation"></div>
+    </div>
+
+    <script id="headerScroll">
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.getElementById('header');
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 100) {
+                    header.classList.add('bg-gray-900');
+                    header.classList.remove('bg-transparent');
+                } else {
+                    header.classList.remove('bg-gray-900');
+                    header.classList.add('bg-transparent');
+                }
+            });
+        });
+    </script>
+
+    <script id="navigation-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu toggle
+            const menuButton = document.querySelector('.ri-menu-line');
+            if (menuButton) {
+                menuButton.addEventListener('click', function () {
+                    // Mobile menu functionality would go here
+                });
+            }
+
+            // Scroll to top button
+            const scrollToTopButton = document.getElementById('scrollToTop');
+
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > 300) {
+                    scrollToTopButton.classList.remove('opacity-0', 'invisible');
+                    scrollToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    scrollToTopButton.classList.remove('opacity-100', 'visible');
+                    scrollToTopButton.classList.add('opacity-0', 'invisible');
+                }
+            });
+
+            scrollToTopButton.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script id="section-observer-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            // Navigation dots functionality
+            const sections = document.querySelectorAll('section[id]');
+            const dots = document.querySelectorAll('.custom-dots .dot');
+
+            // Set up IntersectionObserver
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.6
+            };
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const activeSection = entry.target.id;
+
+                        // Update dots
+                        dots.forEach(dot => {
+                            dot.classList.remove('active');
+                            if (dot.dataset.section === activeSection) {
+                                dot.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Add click event to dots
+            dots.forEach(dot => {
+                dot.addEventListener('click', function () {
+                    const targetSection = document.getElementById(this.dataset.section);
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script id="form-validation-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            const consultationForm = document.querySelector('#consultation form');
+
+            if (consultationForm) {
+                consultationForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    // Simple validation
+                    let isValid = true;
+                    const requiredFields = consultationForm.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], select, textarea');
+
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            isValid = false;
+                            field.classList.add('border-red-500');
+                        } else {
+                            field.classList.remove('border-red-500');
+                        }
+                    });
+
+                    const privacyCheckbox = consultationForm.querySelector('#privacy');
+                    if (!privacyCheckbox.checked) {
+                        isValid = false;
+                        privacyCheckbox.nextElementSibling.classList.add('text-red-500');
+                    } else {
+                        privacyCheckbox.nextElementSibling.classList.remove('text-red-500');
+                    }
+
+                    if (isValid) {
+                        // Form submission would go here
+                        alert('Thank you for your inquiry! We will contact you shortly to discuss your event.');
+                        consultationForm.reset();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

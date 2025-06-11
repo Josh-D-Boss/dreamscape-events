@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreams, Delivered - DreamScape Events And Curating</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#b37f3c', secondary: '#1A4D2E' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #36454F;
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-section {
+            height: 100vh;
+            min-height: 600px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 50;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            display: none;
+        }
+
+        .custom-checkbox {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d4af37;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        input[type="checkbox"]:checked+.custom-checkbox::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 6px;
+            width: 6px;
+            height: 12px;
+            border: solid #d4af37;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .custom-radio {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d4af37;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        input[type="radio"]:checked+.custom-radio::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #d4af37;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header class="fixed w-full z-50 transition-all duration-300" id="header">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="text-3xl font-['Pacifico'] text-white">DreamScape</a>
+
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-white hover:text-primary transition-colors">Home</a>
+                <a href="services.html" class="text-white hover:text-primary transition-colors">Services</a>
+                <a href="#"
+                    class="text-white hover:text-primary transition-colors border-b-2 border-primary">Portfolio</a>
+                <a href="About.html" class="text-white hover:text-primary transition-colors">About</a>
+                <a href="services.html#consultation"
+                    class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90 transition-all whitespace-nowrap">Book
+                    Consultation</a>
+            </nav>
+
+            <button class="md:hidden text-white w-10 h-10 flex items-center justify-center">
+                <i class="ri-menu-line ri-2x"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section relative flex items-center"
+        style="background-image: url('https://readdy.ai/api/search-image?query=A%20luxurious%20Nigerian%20wedding%20reception%20with%20elegant%20decor%2C%20featuring%20a%20beautifully%20decorated%20hall%20with%20soft%20lighting%2C%20floral%20arrangements%2C%20and%20tasteful%20traditional%20elements.%20The%20scene%20captures%20the%20essence%20of%20a%20high-end%20celebration%20with%20warm%20ambient%20lighting%20and%20sophisticated%20styling%2C%20creating%20a%20romantic%20and%20opulent%20atmosphere.&width=1920&height=1080&seq=1&orientation=landscape');">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="container mx-auto px-6 relative z-10 w-full">
+            <div class="max-w-3xl">
+                <h1 class="text-5xl md:text-7xl text-white heading-font mb-6">Dreams, Delivered.</h1>
+                <p class="text-xl md:text-2xl text-white/90 font-light mb-10">"We don't just plan events, we craft
+                    memories that echo."</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#packages"
+                        class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">View
+                        Our Packages</a>
+                    <a href="#portfolio"
+                        class="bg-white/10 backdrop-blur-sm border border-white/30 text-white px-8 py-3 !rounded-button hover:bg-white/20 transition-colors whitespace-nowrap">See
+                        Our Work</a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="ri-arrow-down-line text-white ri-2x"></i>
+        </div>
+    </section>
+
+    <!-- Portfolio Gallery -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl heading-font text-gray-900 mb-4">Our Curated Moments</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore our portfolio of meticulously crafted events that
+                    showcase our dedication to excellence and attention to detail.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item overflow-hidden !rounded-lg shadow-md cursor-pointer" data-gallery="1">
+                    <div class="relative overflow-hidden">
+                        <img src="Img/Portfolio/Timo'25.jpg" alt="Omotolani & Timilehin's Wedding"
+                            class="w-full h-80 object-cover object-top transition-transform duration-500">
+                        <div
+                            class="gallery-overlay absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <h3 class="text-white text-xl font-medium">Omotolani & Timilehin's Wedding</h3>
+                            <p class="text-white/80">Amani Event Center, Kano</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item overflow-hidden !rounded-lg shadow-md cursor-pointer" data-gallery="2">
+                    <div class="relative overflow-hidden">
+                        <img src="Img/Portfolio/Grey.ins Gala.jpg" alt="Annual Corporate Gala"
+                            class="w-full h-80 object-cover object-top transition-transform duration-500">
+                        <div
+                            class="gallery-overlay absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <h3 class="text-white text-xl font-medium">Grey.ins LTD Annual Corporate Gala </h3>
+                            <p class="text-white/80">The Merdian Hall, Abuja</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item overflow-hidden !rounded-lg shadow-md cursor-pointer" data-gallery="3">
+                    <div class="relative overflow-hidden">
+                        <img src="Img/Portfolio/FI'24.jpg" alt="Chioma & Emeka's Wedding"
+                            class="w-full h-80 object-cover object-top transition-transform duration-500">
+                        <div
+                            class="gallery-overlay absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <h3 class="text-white text-xl font-medium">Francisca & Isdom's Wedding</h3>
+                            <p class="text-white/80">Afficent Event Center, Kano</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://drive.google.com/drive/folders/1DOS_geblIrR_oS9FcoGSkASv7FmzXIKs?usp=sharing"
+                    class="inline-flex items-center text-primary hover:text-primary/80 transition-colors">
+                    <span class="mr-2">View All Projects</span>
+                    <i class="ri-arrow-right-line"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl heading-font text-gray-900 mb-4">Tailored for Elegance</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Choose from our carefully crafted packages designed to meet
+                    your specific needs and create unforgettable experiences.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Package 1 -->
+                <div
+                    class="bg-white !rounded-lg shadow-lg overflow-hidden transition-transform hover:translate-y-[-5px] border border-gray-100">
+                    <div class="bg-gray-50 p-6 border-b border-gray-100">
+                        <h3 class="text-2xl heading-font text-gray-900 mb-2">The Chic Package</h3>
+                        <p class="text-gray-500">For intimate events</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <span class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </span>
+                                <span>For micro-events or short timelines</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </span>
+                                <span>Professional setup and coordination</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </span>
+                                <span>Timeline planning and management</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </span>
+                                <span>On-day supervision and coordination</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </span>
+                                <span>Basic decor consultation</span>
+                            </li>
+                        </ul>
+                        <div class="text-center">
+                            <p class="text-lg font-medium mb-4">Starting from ₦500,000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div
+                    class="bg-white !rounded-lg shadow-lg overflow-hidden transition-transform hover:translate-y-[-5px] border border-gray-100 relative z-10 scale-105">
+                    <div class="absolute top-0 right-0 bg-primary text-white text-xs px-3 py-1 !rounded-bl-lg">Most
+                        Popular</div>
+                    <div class="bg-primary/10 p-6 border-b border-gray-100">
+                        <h3 class="text-2xl heading-font text-gray-900 mb-2">The Classic Package</h3>
+                        <p class="text-gray-500">Mid-tier excellence</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <span class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </span>
+                                <span>Comprehensive planning & logistics</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </span>
+                                <span>Professional décor guidance</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </span>
+                                <span>Curated vendor recommendations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </span>
+                                <span>Full coordination team</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </span>
+                                <span>Partial vendor management</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </span>
+                                <span>Budget management assistance</span>
+                            </li>
+                        </ul>
+                        <div class="text-center">
+                            <p class="text-lg font-medium mb-4">Starting from ₦1,500,000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div
+                    class="bg-white !rounded-lg shadow-lg overflow-hidden transition-transform hover:translate-y-[-5px] border border-gray-100 relative z-10 scale-105">
+                    <!-- Badge -->
+                    <div class="absolute top-0 right-0 bg-primary text-white text-xs px-3 py-1 !rounded-bl-lg">
+                        Recommended</div>
+
+                    <div class="bg-primary/10 p-6 border-b border-gray-100">
+                        <h3 class="text-2xl heading-font text-gray-900 mb-2">The Prestige Package</h3>
+                        <p class="text-gray-500">Full luxury experience</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <span class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </span>
+                                <span>Complete event strategy & planning</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </span>
+                                <span>Premium venue sourcing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </span>
+                                <span>Full vendor coordination</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </span>
+                                <span>Bespoke décor concept & execution</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </span>
+                                <span>VIP on-the-day coordination</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </span>
+                                <span>Hostess & offering team included</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </span>
+                                <span>Exclusive access to premium vendors</span>
+                            </li>
+                        </ul>
+                        <div class="text-center">
+                            <p class="text-lg font-medium mb-4">Starting from ₦3,500,000</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Add-ons Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl heading-font text-gray-900 mb-4">Custom Add-ons</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Enhance your event experience with our premium add-on
+                    services, tailored to your specific needs.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Add-on 1 -->
+                <div class="bg-white !rounded-lg shadow-md p-8 text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 !rounded-full mx-auto mb-6">
+                        <i class="ri-plane-line text-primary ri-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 mb-3">Destination Planning</h3>
+                    <p class="text-gray-600">Expert coordination for events outside your home city or country.</p>
+                </div>
+                <!-- Add-on 2 -->
+                <div class="bg-white !rounded-lg shadow-md p-8 text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 !rounded-full mx-auto mb-6">
+                        <i class="ri-heart-line text-primary ri-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 mb-3">Traditional Rites Oversight</h3>
+                    <p class="text-gray-600">Cultural expertise to ensure traditional ceremonies are authentic and
+                        respectful.</p>
+                </div>
+
+                <!-- Add-on 3 -->
+                <div class="bg-white !rounded-lg shadow-md p-8 text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 !rounded-full mx-auto mb-6">
+                        <i class="ri-t-shirt-line text-primary ri-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 mb-3">Bridal Styling Coordination</h3>
+                    <p class="text-gray-600">Personal styling assistance for the bride and bridal party.</p>
+                </div>
+                <!-- Add-on 4 -->
+                <div class="bg-white !rounded-lg shadow-md p-8 text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 !rounded-full mx-auto mb-6">
+                        <i class="ri-vip-crown-line text-primary ri-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 mb-3">VIP Guest Concierge</h3>
+                    <p class="text-gray-600">Dedicated service for your most important guests, including transportation
+                        and accommodation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="py-20 relative">
+        <div class="absolute inset-0 bg-cover bg-center opacity-20"
+            style="background-image: url('https://readdy.ai/api/search-image?query=A%20blurred%2C%20elegant%20Nigerian%20wedding%20reception%20hall%20with%20soft%20lighting%2C%20creating%20a%20dreamy%20background%20effect.%20The%20image%20shows%20out-of-focus%20decorative%20elements%20like%20chandeliers%2C%20floral%20arrangements%2C%20and%20elegant%20table%20settings%2C%20creating%20a%20sophisticated%20atmosphere%20without%20showing%20specific%20details.&width=1920&height=600&seq=8&orientation=landscape');">
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <i class="ri-double-quotes-l text-primary/30 ri-4x mb-6"></i>
+                <blockquote class="text-2xl md:text-3xl heading-font text-gray-800 mb-8 leading-relaxed">
+                    "They gave me more than an event — they gave me a moment I'll never forget. Every detail was
+                    perfect, from the floral arrangements to the lighting. DreamScape truly delivered beyond my
+                    expectations."
+                </blockquote>
+                <div class="flex items-center justify-center mb-10">
+                    <div class="w-16 h-16 !rounded-full overflow-hidden mr-4">
+                        <img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20Nigerian%20woman%20in%20her%2030s%20wearing%20elegant%20business%20attire%20and%20subtle%20jewelry%2C%20with%20a%20warm%20smile%20against%20a%20neutral%20background.%20The%20image%20is%20high%20quality%2C%20well-lit%2C%20and%20portrays%20confidence%20and%20approachability.&width=200&height=200&seq=9&orientation=squarish"
+                            alt="Testimonial" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-left">
+                        <h4 class="font-medium text-gray-900">Dr. Amina Okafor</h4>
+                        <p class="text-gray-600">CEO, Horizon Healthcare</p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#"
+                        class="bg-white border border-primary text-primary px-8 py-3 !rounded-button hover:bg-primary/5 transition-colors whitespace-nowrap">View
+                        More Testimonials</a>
+                    <a href="services.html#consultation"
+                        class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">Book
+                        a Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <h3 class="text-2xl font-['Pacifico'] mb-6">Dreamscape</h3>
+                    <p class="text-gray-400 mb-6">Creating unforgettable luxury events across Nigeria since 2015. We
+                        transform your vision into extraordinary experiences.</p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/eventsby_dreamscape?igsh=MWlrYnF5a3lxenJtaw=="
+                            class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-twitter-x-line"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-primary transition-colors">Home</a>
+                        </li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-primary transition-colors">Services</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Portfolio</a></li>
+                        <li><a href="About.html" class="text-gray-400 hover:text-primary transition-colors">About Us</a>
+                        </li>
+                        <li><a href="index.html#contact"
+                                class="text-gray-400 hover:text-primary transition-colors">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="services.html#traditional-ceremonies"
+                                class="text-gray-400 hover:text-primary transition-colors">Traditional Ceremony</a></li>
+                        <li><a href="services.html#luxury-weddings"
+                                class="text-gray-400 hover:text-primary transition-colors">Luxury Weddings</a></li>
+                        <li><a href="services.html#corporate-events"
+                                class="text-gray-400 hover:text-primary transition-colors">Corporate Events</a></li>
+                        <li><a href="services.html#social-events"
+                                class="text-gray-400 hover:text-primary transition-colors">Social Events</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="text-gray-400">15 Admiralty Way, Lekki Phase 1, Lagos, Nigeria</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <span class="text-gray-400">+234 801 234 5678</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <span class="text-gray-400">dreamscapeevents01@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
+                <div class="flex justify-center space-x-6 mb-6">
+                    <i class="ri-visa-fill ri-2x"></i>
+                    <i class="ri-mastercard-fill ri-2x"></i>
+                    <i class="ri-paypal-fill ri-2x"></i>
+                </div>
+                <p>&copy; 2025 Dreamscape Events. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <div class="relative w-full h-full flex items-center justify-center p-4">
+            <button id="lightbox-close"
+                class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center bg-black/50 !rounded-full text-white hover:bg-black transition-colors z-10">
+                <i class="ri-close-line ri-lg"></i>
+            </button>
+            <button id="lightbox-prev"
+                class="absolute left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-black/50 !rounded-full text-white hover:bg-black transition-colors z-10">
+                <i class="ri-arrow-left-s-line ri-lg"></i>
+            </button>
+            <button id="lightbox-next"
+                class="absolute right-6 top-1/2 transform -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-black/50 !rounded-full text-white hover:bg-black transition-colors z-10">
+                <i class="ri-arrow-right-s-line ri-lg"></i>
+            </button>
+            <div class="max-w-5xl max-h-full overflow-hidden">
+                <img id="lightbox-image" src="" alt="Gallery Image" class="max-w-full max-h-[80vh] object-contain">
+                <div class="bg-black/80 p-4 text-white">
+                    <h3 id="lightbox-title" class="text-xl font-medium"></h3>
+                    <p id="lightbox-description" class="text-white/80"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script id="headerScroll">
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.getElementById('header');
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 100) {
+                    header.classList.add('bg-gray-900');
+                    header.classList.remove('bg-transparent');
+                } else {
+                    header.classList.remove('bg-gray-900');
+                    header.classList.add('bg-transparent');
+                }
+            });
+        });
+    </script>
+
+    <script id="gallery-lightbox-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxTitle = document.getElementById('lightbox-title');
+            const lightboxDescription = document.getElementById('lightbox-description');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const lightboxPrev = document.getElementById('lightbox-prev');
+            const lightboxNext = document.getElementById('lightbox-next');
+
+            let currentGalleryIndex = 0;
+
+            // Gallery data
+            const galleries = [
+                {
+                    id: 1,
+                    title: "Omotolani & Timilehin's Wedding",
+                    location: "Amani Event Center, Kano",
+                    images: Array.from({ length: 24 }, (_, i) => `Img/Portfolio/Timo Slide (${i + 1}).jpg`)
+                },
+                {
+                    id: 2,
+                    title: "Grey.ins LTD Annual Corporate Gala",
+                    location: "The Merdian Hall, Abuja",
+                    images: Array.from({ length: 6 }, (_, i) => `Img/Portfolio/Grey Slide (${i + 1}).jpg`)
+                },
+                {
+                    id: 3,
+                    title: "Francisca & Isdom's Wedding",
+                    location: "Afficent Event Center, Kano",
+                    images: Array.from({ length: 5 }, (_, i) => `Img/Portfolio/FI Slide (${i + 1}).jpg`)
+                },
+            ];
+
+            // Open lightbox
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    const galleryId = parseInt(this.getAttribute('data-gallery'));
+                    const gallery = galleries.find(g => g.id === galleryId);
+
+                    if (gallery) {
+                        currentGalleryIndex = 0;
+                        updateLightbox(gallery, currentGalleryIndex);
+                        lightbox.style.display = 'block';
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+
+            // Close lightbox
+            lightboxClose.addEventListener('click', function () {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = '';
+            });
+
+            // Navigate through images
+            lightboxPrev.addEventListener('click', function () {
+                const galleryId = parseInt(lightboxImage.getAttribute('data-gallery-id'));
+                const gallery = galleries.find(g => g.id === galleryId);
+
+                if (gallery) {
+                    currentGalleryIndex = (currentGalleryIndex - 1 + gallery.images.length) % gallery.images.length;
+                    updateLightbox(gallery, currentGalleryIndex);
+                }
+            });
+
+            lightboxNext.addEventListener('click', function () {
+                const galleryId = parseInt(lightboxImage.getAttribute('data-gallery-id'));
+                const gallery = galleries.find(g => g.id === galleryId);
+
+                if (gallery) {
+                    currentGalleryIndex = (currentGalleryIndex + 1) % gallery.images.length;
+                    updateLightbox(gallery, currentGalleryIndex);
+                }
+            });
+
+            // Close on background click
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox) {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Update lightbox content
+            function updateLightbox(gallery, index) {
+                lightboxImage.src = gallery.images[index];
+                lightboxImage.setAttribute('data-gallery-id', gallery.id);
+                lightboxTitle.textContent = gallery.title;
+                lightboxDescription.textContent = gallery.location + ' • Image ' + (index + 1) + ' of ' + gallery.images.length;
+            }
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function (e) {
+                if (lightbox.style.display === 'block') {
+                    if (e.key === 'Escape') {
+                        lightbox.style.display = 'none';
+                        document.body.style.overflow = '';
+                    } else if (e.key === 'ArrowLeft') {
+                        lightboxPrev.click();
+                    } else if (e.key === 'ArrowRight') {
+                        lightboxNext.click();
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script id="smooth-scroll-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script id="navbar-scroll-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            const nav = document.querySelector('nav');
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    nav.classList.add('shadow-md');
+                    nav.classList.remove('shadow-sm');
+                } else {
+                    nav.classList.remove('shadow-md');
+                    nav.classList.add('shadow-sm');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
