@@ -648,22 +648,31 @@
         });
     </script>
 
-    <script id="mobileMenu">
-        document.addEventListener('DOMContentLoaded', function () {
-            const menuButton = document.querySelector('.md\\:hidden');
-            const nav = document.querySelector('nav');
+<script id="mobileMenu">
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuButton = document.querySelector('button.md\\:hidden');
+    const nav = document.querySelector('nav');
 
-            menuButton.addEventListener('click', function () {
-                if (nav.classList.contains('hidden')) {
-                    nav.classList.remove('hidden');
-                    nav.classList.add('flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'w-full', 'bg-gray-900', 'py-4', 'px-6', 'space-y-4', 'shadow-lg');
-                } else {
-                    nav.classList.add('hidden');
-                    nav.classList.remove('flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'w-full', 'bg-gray-900', 'py-4', 'px-6', 'space-y-4', 'shadow-lg');
-                }
-            });
-        });
-    </script>
+    if (menuButton && nav) {
+      menuButton.addEventListener('click', function () {
+        if (nav.classList.contains('hidden')) {
+          nav.classList.remove('hidden');
+          nav.classList.add(
+            'flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'w-full',
+            'bg-gray-900', 'py-4', 'px-6', 'space-y-4', 'shadow-lg'
+          );
+        } else {
+          nav.classList.add('hidden');
+          nav.classList.remove(
+            'flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'w-full',
+            'bg-gray-900', 'py-4', 'px-6', 'space-y-4', 'shadow-lg'
+          );
+        }
+      });
+    }
+  });
+</script>
+
 
     <script id="formValidation">
         document.addEventListener('DOMContentLoaded', function () {
