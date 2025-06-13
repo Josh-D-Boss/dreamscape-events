@@ -673,10 +673,12 @@
       menuButton.addEventListener('click', function () {
         if (nav.classList.contains('hidden')) {
           nav.classList.remove('hidden');
-          nav.classList.add(
-            'flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'w-full',
-            'bg-gray-900', 'py-4', 'px-6', 'space-y-4', 'shadow-lg'
-          );
+            nav.classList.add(
+                'flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'w-full',
+                'bg-gray-900', 'py-4', 'px-6', 'space-y-4', 'shadow-lg',
+                'items-center', 'text-center' // ✅ add these two
+                );
+
         } else {
           nav.classList.add('hidden');
           nav.classList.remove(
