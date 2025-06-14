@@ -665,26 +665,21 @@
     </script>
 
 <script id="mobileMenu">
+<script id="mobileMenu">
   document.addEventListener('DOMContentLoaded', function () {
     const menuButton = document.querySelector('button.md\\:hidden');
     const nav = document.querySelector('nav');
 
     if (menuButton && nav) {
       menuButton.addEventListener('click', function () {
-        if (nav.classList.contains('hidden')) {
-          nav.classList.remove('hidden');
-            nav.classList.add(
-                'flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'w-full',
-                'bg-gray-900', 'py-4', 'px-6', 'space-y-4', 'shadow-lg',
-                'items-center', 'text-center' // ✅ add these two
-                );
+        const isHidden = nav.classList.contains('hidden');
 
+        if (isHidden) {
+          // Show mobile menu
+          nav.className = 'flex flex-col absolute top-full left-0 w-full bg-gray-900 py-4 px-6 space-y-4 shadow-lg items-center text-center md:hidden';
         } else {
-          nav.classList.add('hidden');
-          nav.classList.remove(
-            'flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'w-full',
-            'bg-gray-900', 'py-4', 'px-6', 'space-y-4', 'shadow-lg'
-          );
+          // Restore desktop-only nav style (hidden on mobile)
+          nav.className = 'hidden md:flex items-center space-x-8';
         }
       });
     }
