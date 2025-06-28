@@ -96,6 +96,27 @@
         input:focus {
             outline: none;
         }
+
+         .hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  #menu-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translateY(6px);
+  }
+
+  #menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #menu-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-6px);
+  }
     </style>
 </head>
 
@@ -117,9 +138,13 @@
                     Consultation</a>
             </nav>
 
-            <button class="md:hidden text-white w-10 h-10 flex items-center justify-center">
-                <i class="ri-menu-line ri-2x"></i>
-            </button>
+<!-- Compact Animated Hamburger -->
+<button id="menu-toggle" class="md:hidden w-6 h-5 relative z-50 flex flex-col justify-between items-center">
+  <span class="block w-full h-0.5 bg-white transition-transform duration-300 origin-center" id="line1"></span>
+  <span class="block w-full h-0.5 bg-white transition-opacity duration-300" id="line2"></span>
+  <span class="block w-full h-0.5 bg-white transition-transform duration-300 origin-center" id="line3"></span>
+</button>
+
         </div>
     </header>
 
@@ -510,18 +535,20 @@
     
 <script id="mobileMenu">
   document.addEventListener('DOMContentLoaded', function () {
-    const menuButton = document.querySelector('button.md\\:hidden');
+    const menuButton = document.getElementById('menu-toggle');
     const nav = document.querySelector('nav');
 
     if (menuButton && nav) {
       menuButton.addEventListener('click', function () {
+        menuButton.classList.toggle('open');
+
         const isHidden = nav.classList.contains('hidden');
 
         if (isHidden) {
           // Show mobile menu
           nav.className = 'flex flex-col absolute top-full left-0 w-full bg-gray-900 py-4 px-6 space-y-4 shadow-lg items-center text-center md:hidden';
         } else {
-          // Restore desktop-only nav style (hidden on mobile)
+          // Restore desktop-only nav style
           nav.className = 'hidden md:flex items-center space-x-8';
         }
       });
