@@ -825,24 +825,6 @@
             }
         });
     </script>
-    
-    <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const menuButton = document.getElementById('menu-toggle');
-    const nav = document.querySelector('nav');
-
-    menuButton.addEventListener('click', function () {
-      menuButton.classList.toggle('open');
-
-      const isHidden = nav.classList.contains('hidden');
-      if (isHidden) {
-        nav.className = 'flex flex-col absolute top-full left-0 w-full bg-gray-900 py-4 px-6 space-y-4 shadow-lg items-center text-center md:hidden';
-      } else {
-        nav.className = 'hidden md:flex items-center space-x-8';
-      }
-    });
-  });
-</script>
 
 </body>
 
