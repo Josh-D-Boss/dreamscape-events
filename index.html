@@ -134,16 +134,16 @@
     transition: all 0.3s ease;
   }
 
-  .menu-toggle.open span:nth-child(1) {
-    transform: rotate(45deg) translate(4px, 4px);
+  #menu-toggle.open #line1 {
+    transform: rotate(45deg) translateY(8px);
   }
 
-  .menu-toggle.open span:nth-child(2) {
+  #menu-toggle.open #line2 {
     opacity: 0;
   }
 
-  .menu-toggle.open span:nth-child(3) {
-    transform: rotate(-45deg) translate(4px, -4px);
+  #menu-toggle.open #line3 {
+    transform: rotate(-45deg) translateY(-8px);
   }
 
     </style>
@@ -164,12 +164,13 @@
                     class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90 transition-all whitespace-nowrap">Book A
                     Consultation</a>
             </nav>
-            <!-- Animated Hamburger (Mobile Only) -->
-            <div class="menu-toggle md:hidden" id="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <!-- Compact Animated Hamburger -->
+            <button id="menu-toggle" class="md:hidden w-6 h-5 relative z-50 flex flex-col justify-between items-center">
+                <span class="block w-full h-0.5 bg-white transition-transform duration-300 origin-center" id="line1"></span>
+                <span class="block w-full h-0.5 bg-white transition-opacity duration-300" id="line2"></span>
+                <span class="block w-full h-0.5 bg-white transition-transform duration-300 origin-center" id="line3"></span>
+            </button>
+
 
         </div>
     </header>
@@ -746,16 +747,17 @@
         const isHidden = nav.classList.contains('hidden');
 
         if (isHidden) {
-          // Show mobile nav
+          // Show mobile menu
           nav.className = 'flex flex-col absolute top-full left-0 w-full bg-gray-900 py-4 px-6 space-y-4 shadow-lg items-center text-center md:hidden';
         } else {
-          // Hide nav again
+          // Restore desktop-only nav style
           nav.className = 'hidden md:flex items-center space-x-8';
         }
       });
     }
   });
 </script>
+
 
 
     <script id="formValidation">
