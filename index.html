@@ -162,11 +162,11 @@
                     class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90 transition-all whitespace-nowrap">Book A
                     Consultation</a>
             </nav>
-            <!-- Hamburger Button -->
-            <button id="menu-toggle" class="md:hidden w-6 h-5 flex flex-col justify-between items-center z-50 relative">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+            <!-- Compact Animated Hamburger -->
+            <button id="menu-toggle" class="md:hidden w-6 h-5 relative z-50 flex flex-col justify-between items-center">
+                <span id="line1" class="block w-full h-0.5 bg-white transition-transform duration-300 origin-center"></span>
+                <span id="line2" class="block w-full h-0.5 bg-white transition-opacity duration-300"></span>
+                <span id="line3" class="block w-full h-0.5 bg-white transition-transform duration-300 origin-center"></span>
             </button>
 
         </div>
@@ -732,23 +732,25 @@
         });
     </script>
     
-<script id="mobileMenu">
-  document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('mobile-nav');
-
-    if (menuToggle && nav) {
-      menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('open');
-        nav.classList.toggle('hidden');
-      });
-    } else {
-      console.warn("Menu toggle or nav not found in the DOM.");
-    }
-  });
-</script>
-
-
+    <script id="mobileMenu">
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuButton = document.getElementById('menu-toggle');
+            const nav = document.querySelector('nav');
+            
+            if (menuButton && nav) {
+                menuButton.addEventListener('click', function () {
+                    menuButton.classList.toggle('open');
+                    
+                    const isHidden = nav.classList.contains('hidden');
+                    if (isHidden) {
+                        nav.className = 'flex flex-col absolute top-full left-0 w-full bg-gray-900 py-4 px-6 space-y-4 shadow-lg items-center text-center md:hidden';
+                    } else {
+                        nav.className = 'hidden md:flex items-center space-x-8';
+                    }
+                });
+            }
+        });
+    </script>
 
     <script id="formValidation">
         document.addEventListener('DOMContentLoaded', function () {
